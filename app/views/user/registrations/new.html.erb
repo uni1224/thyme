@@ -1,0 +1,65 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h3>新規登録<i class="fa fa-user fa-lg fa-fw"></i></h3>
+        <%= form_with model: @user, url: registration_path(resource_name), local: true do |f| %>
+          <%= render "user/shared/error_messages", resource: resource %>
+            <table class="customer_info customer_form">
+              <thead>
+                <th></th>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>名前</td>
+                  <td><%= f.label :last_name, "(姓)",class: "user_name" %> <%= f.text_field :last_name, :placeholder =>"山田"  %></td>
+                  <td><%= f.label :first_name, "(名)", class: "user_name" %> <%= f.text_field :first_name, :placeholder =>"太郎"%></td>
+                </tr>
+                <tr>
+                  <td>フリガナ</td>
+                  <td><%= f.label :last_name_kana, "(セイ)",class: "user_name" %><%= f.text_field :last_name_kana, :placeholder =>"ヤマダ" %></td>
+                  <td><%= f.label :first_name_kana, "(メイ)" ,class: "user_name"%><%= f.text_field :first_name_kana, :placeholder =>"タロウ" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :email,"メールアドレス" %></td>
+                  <td colspan="2"><%= f.email_field :email, autocomplete: "email",:placeholder =>"g@g"  %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :birthday, "生年月日" %></td>
+                  <td><%= f.date_select :birthday, {start_year: 1950, end_year: 2016,include_blank: true, use_two_digit_numbers: true},
+                      {class: "input-tab birthday-select"}%>
+                  </td>
+                </tr>
+                <tr>
+                  <td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
+                  <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"3000563", class: "jpostal_code" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :address, "住所"%></td>
+                  <td colspan="2"><%= f.text_field :address,:placeholder =>"東京都",class: "jpostal_address" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :phone_number, "電話番号(ハイフン無し10 or 11桁)" %></td>
+                  <td colspan="2"><%= f.text_field :phone_number, :placeholder =>"22211110000" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+                  <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+                  <td colspan= "2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+                </tr>
+              </tbody>
+            </table>
+        <% end %>
+      <h6>既に登録済みの方</h6>
+      <p><%= link_to "こちら", new_user_session_path, class: "underline" %>からログインしてください。</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#bc8f8f;">
+  <div class="collapse navbar-collapse">
+   <%#ユーザーログイン後ヘッダー%>
+    <% if user_signed_in? %>
+      <div class="row d-flex justify-content-around align-items-center col-md-6 ms-5">
+        <div class="navbar navbar-brand">
+          <%#= link_to root_path do %>
+            <%#= image_tag 'logo.png',size: '80x80' %>
+          <%# end %>
+        <h6 class="mb-0", style= "color: #f5f5f5"; >~ようこそ、<%= current_user.user_name %>さん~</h6>
+      </div>
+    </div>
+    <%#管理者ログイン後ヘッダー%>
+    <% elsif admin_signed_in? %>
+      <div class="row d-flex justify-content-around align-items-center col-md-6 ms-5">
+        <div class="navbar navbar-brand">
+          <%= link_to admin_root_path do %>
+            <%= image_tag 'logo.png',size: '80x80'%>
+          <% end %>
+            <h6 class="mb-0", style= "color: #f5f5f5";>管理者ログイン中・・・<i class="fa-solid fa-right-to-bracket"></i></h6>
+        </div>
+      </div>
+     <% else %>
+       <div class="navbar navbar-brand ms-5">
+         <%= link_to root_path do %>
+           <%#= image_tag 'logo.png',size: '80x80' %>
+         <% end %>
+          <div></div>
+         </div>
+       </div>
+     <% end %>
+     </div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+             <ul class="navbar-nav ml-auto">
+               <%#ユーザーログイン後ヘッダー%>
+               <% if user_signed_in? %>
+                 <li class="nav-item">
+                   <%= link_to mypage_path ,class: "nav-link", style: "color: #f5f5f5" do %>
+                     <i class="fa-solid fa-user"></i>
+                       マイページ
+                   <% end %>
+                 </li>
+                     <li class="nav-item">
+                       <%= link_to reservations_path, class: "nav-link", style: "color: #f5f5f5" do %>
+                         <i class="fa-solid fa-heart"></i>
+                         予約
+                       <% end %>
+                     </li>
+                         <li class="nav-item">
+                           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", style: "color: #f5f5f5" do %>
+                             <i class="fa-solid fa-right-from-bracket"></i>
+                             ログアウト
+                           <% end %>
+                         </li>
+                  <%#管理者ログイン後ヘッダー%>
+                 <% elsif admin_signed_in? %>
+                              <li class="nav-item">
+                                <%= link_to admin_users_path ,class: "nav-link", style: "color: #f5f5f5" do %>
+                                  <i class="fa-solid fa-user-check"></i>
+                                  会員一覧
+                                <% end %>
+                              </li>
+                                <li class="nav-item">
+                                  <%= link_to admin_reservations_path ,class: "nav-link", style: "color: #f5f5f5" do %>
+                                    <i class="fa-solid fa-check"></i>
+                                    予約スケジュール
+                                  <% end %>
+                                </li>
+                        <li class="nav-item">
+                            <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link", style: "color: #f5f5f5;" do %>
+                              <i class="fa-solid fa-right-from-bracket"></i>
+                              ログアウト
+                            <% end %>
+                        </li>
+                  <% else %>
+                         <li class="nav-item">
+                           <%= link_to about_path, class: "nav-link", style: "color: #f5f5f5" do %>
+                             <i class="fa-solid fa-heart"></i>
+                             About
+                           <% end %>
+                         </li>
+                       <li class="nav-item">
+                         <%= link_to new_user_registration_path, class: "nav-link", style: "color: #f5f5f5" do %>
+                           <i class="fa-solid fa-user-plus"></i>
+                           新規登録
+                         <% end %>
+                       </li>
+                     <li class="nav-item">
+                       <%= link_to new_user_session_path, class: "nav-link", style: "color: #f5f5f5" do %>
+                         <i class="fa-solid fa-right-to-bracket"></i>
+                         ログイン
+                       <% end %>
+                     </li>
+                  <% end %>
+              </ul>
+      </div>
+    </div>
+  </div>
+</nav>

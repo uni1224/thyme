@@ -1,0 +1,12 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 mx-auto">
+<h3 class="section-ttl">本当に退会しますか？</h3>
+  <h4 class="text-center"><i class="fa-solid fa-triangle-exclamation"></i> 退会すると、サロン情報の閲覧や<br>予約ができなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h4>
+    <div class= "text-center">
+      <%= link_to "マイページに戻る", mypage_path, class: "btn btn-info" %>
+        <%= link_to "退会する", out_user_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: "btn btn-danger" %>
+    </div>
+    </div>
+  </div>
+</div>
