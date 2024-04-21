@@ -1,0 +1,18 @@
+<%= form_with model: [:admin, @reservation], url: admin_reservation_path do |f| %>
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-12 text-center title">
+        <h4>予約時間変更</h4>
+            <div class="time form-group">
+              <%= f.time_select :time, {}, class: 'form-control',:placeholder =>"#{@reservation.time.strftime( "%H:%M" )}"  %>
+            </div>
+      <div class="submit">
+        <%= f.submit '変更する', class: 'btn btn-primary mx-auto d-block' %>
+      </div>
+        <% end %>
+          <div class="col-12 text-right">
+            <%= link_to '戻る', admin_reservation_path %>
+          </div>
+      </div>
+    </div>
+  </div>

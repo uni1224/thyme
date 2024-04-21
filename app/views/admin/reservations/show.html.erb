@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-12 text-center title">
+      <h1>Reservation Detail</h1>
+    </div>
+    <div class="col-12 mt-3 text-center content">
+      <div>
+        <label><strong>名前：</strong></label>
+        <p style="display:inline;"><%= @reservation.user.last_name %><%= @reservation.user.first_name %></p>
+      </div>
+      <div>
+        <label><strong>日付：</strong></label>
+        <p style="display:inline;"><%= @reservation.day.strftime("%Y年%m月%d日(%a)") %></p>
+      </div>
+      <div>
+        <label><strong>時間：</strong></label>
+        <p style="display:inline;"><%= @reservation.time.strftime("%H:%M") %></p>
+      </div>
+      <div class=" mt-3 text-center">
+        <%= link_to 'Destroy', admin_reservation_path(@reservation), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn w-25 mt-3 change_button", style: "background-color:#a52a2a;" %>
+        <%= link_to 'Edit', edit_admin_reservation_path(@reservation), class: "btn w-25 mt-3 change_button", style: "background-color:#8fbc8f;" %>
+      </div>
+    </div>
+    <div class="col-12 text-right">
+      <%= link_to 'スケジュールに戻る', admin_reservations_path %>
+    </div>
+  </div>
+</div>

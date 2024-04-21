@@ -1,0 +1,49 @@
+<div class="container salon-user-index-container">
+  <div class="row pt-5 pl-5 ml-5">
+    <div class="customer-group">
+
+      <div class="title">
+        <h3 class="text-center">顧客一覧 <i class="fa-solid fa-users"></i></h3>
+        <%#サロン側の検索%>
+          <% if admin_signed_in? %>
+            <%= form_with url: searches_search_path, local: true, method: :get do |f| %>
+              <%= f.text_field :word, placeholder:"顧客検索"%>
+                <%= button_tag type: "submit", class:"btn btn-outline btn-sm glass" do%><div class="text-info"><i class="fa-solid fa-magnifying-glass"></i></div><% end %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+    <div class="row pt-5 justify-content-center">
+      <div class="col-9 salon-user-index-col-9">
+       <table class='table table-hover table-inverse salon-user-index-table'>
+          <thead class="text-center">
+            <tr>
+              <th>会員ID</th>
+              <th>氏名</th>
+              <th>メールアドレス</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @users.each do |user| %>
+            <tr class="text-center">
+              <td><%= user.id %></td>
+              <td>
+              <%= link_to admin_user_path(user.id) do %>
+              <%= "#{user.last_name}#{user.first_name}" %>
+              <% end %>
+              </td>
+              <td><%= user.email %></td>
+              <%# if user.is_deleted == false %>
+                <td class="text-success">有効</td>
+              <%# else %>
+                <td class="text-secondary">退会</td>
+              <%# end %>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

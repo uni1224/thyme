@@ -29,6 +29,7 @@ gem "jbuilder"
 #ユーザー認証
 gem 'devise'
 gem "dotenv-rails"
+gem "sassc-rails"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

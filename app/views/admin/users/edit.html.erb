@@ -1,0 +1,64 @@
+<%= form_with model: @user, url: salon_user_path do |f| %>
+  <div class="container salon-user-edit-container my-5">
+    <div class="row">
+      <div class="col-10 mx-auto">
+        <h5 class="ml-5 mb-5"><span class="title-custom px-4">ユーザーページ編集 <i class="fa-solid fa-user"></i></span></h5>
+          <table class="table table-borderless salon-user-edit-table">
+            <%= render 'layouts/error', obj: @user%>
+              <div class="col-8 mx-auto form-group">
+            <tr>
+              <td><%= f.label :inmage,"プロフィール画像" %></td>
+              <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*",:placeholder =>"#{@user.get_profile_image(100,100)}" %>  </td>
+            </tr>
+            <tr>
+              <td>名前</td>
+              <td><%= f.label :last_name, "(姓)",class: "user_name" %><%= f.text_field :last_name, :placeholder =>"#{@user.last_name}" %></td>
+              <td><%= f.label :first_name, "(名)", class: "user_name" %> <%= f.text_field :first_name, :placeholder =>"#{@user.first_name}" %></td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td><%= f.label :last_name_kana, "(セイ)" %><%= f.text_field :last_name_kana, :placeholder =>"#{@user.last_name_kana}" %></td>
+              <td><%= f.label :first_name_kana, "(メイ)" %><%= f.text_field :first_name_kana, :placeholder =>"#{@user.first_name_kana}" %></td></tr>
+            <tr>
+            <tr>
+              <td><%= f.label :nick_name,"ニックネーム" %></td>
+              <td colspan="2"><%= f.text_field :nick_name, :placeholder =>"#{@user.nick_name}" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :birthday,"生年月日" %></td>
+              <td colspan="2"><%= f.date_select :birthday, {start_year: 1950, end_year: 2016,include_blank: true, use_two_digit_numbers: true},
+                              {class: "input-tab birthday-select"} %></td>
+            </tr>
+              <td><%= f.label :email,"メールアドレス" %></td>
+              <td colspan="2"><%= f.email_field :email, autocomplete: "email",:placeholder =>"#{@user.email}" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
+              <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@user.postal_code}", class: "jpostal_code" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :address, "住所"%></td>
+              <td colspan="2"><%= f.text_field :address, :placeholder =>"#{@user.address}",class: "jpostal_address" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :phone_number, "電話番号(ハイフン無し10 or 11桁)" %></td>
+              <td colspan="2"><%= f.text_field :phone_number, :placeholder =>"#{@user.phone_number}" %></td>
+            </tr>
+             <tr>
+               <div class="cp_ipradio">
+          <th>会員ステータス</th>
+          <td>
+            <%= f.radio_button :is_deleted, false %>
+            <%= f.label :有効 %>
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :退会 %>
+          </td>
+        </tr>
+              <!--登録ボタン-->
+              <td><%= f.submit '編集内容を保存する' ,class:"btn btn-success" %></td>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

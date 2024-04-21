@@ -8,7 +8,8 @@ class User::UsersController < ApplicationController
                                                                                                  DateTime.current << 12).order(day: :desc)
     end
   
-    def edit; end
+    def edit
+    end
   
     def update
       if @user.update(user_params)

@@ -1,0 +1,102 @@
+<div class="container salon-user-container">
+  <div class="row pt-5">
+    <div class="title pt-4 ml-5">
+      <h3 class="text-center bg-light"><%= "#{@user.last_name}#{@user.first_name}さんの会員情報" %> <i class="fa-regular fa-user"></i></h3>
+    </div>
+  </div>
+  <div class="row pl-5">
+    <div class="col-8">
+      <table class="table table-borderless salon-user-table">
+        <tr>
+          <th>会員ID</th>
+            <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th>氏名</th>
+            <td><%= @user.last_name %><%= @user.first_name %></td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+            <td><%= @user.last_name_kana %><%= @user.first_name_kana %></td>
+        </tr>
+         <tr>
+          <th>生年月日</th>
+            <td><%= @user.birthday %></td>
+         </tr>
+        <tr>
+          <th>郵便番号</th>
+            <td><%= @user.postal_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+            <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+            <td><%= @user.phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+              <%# if @user.is_deleted == false %>
+            <td class="text-success">有効</td>
+              <%# else %>
+            <td class="text-secondary">退会</td>
+              <%# end %>
+        </tr>
+      </table>
+    </div>
+    <div class="col-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">予約日</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @user_reservations.each do |user_reservation| %>
+            <td>
+              <%=  user_reservation.day.strftime("%Y年%m月%d日(%a)") %><%=  user_reservation.time.strftime("%H:%M") %>
+            </td>
+          </tr>
+            <% end %>
+            <% if @user_reservations.blank? %>
+              <tr>
+                <td>予約はありません。</td>
+              </tr>
+            <% end %>
+        <div class="col-12 mt-3 text-center mx-auto">
+        <th scope="col">来院履歴</th>
+      <table class="table">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+          <tbody>
+            <% @visit_historys.each do |visit_history| %>
+              <tr>
+                <td>
+                  <%=  visit_history.day.strftime("%Y年%m月%d日(%a)") %><%=  visit_history.time.strftime("%H:%M") %>
+                </td>
+              </tr>
+            <% end %>
+            <% if @visit_historys.blank? %>
+              <tr>
+                <td>来院履歴はありません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+        </tbody>
+      </table>
+</div>
+    <div class="text-center">
+      <%= link_to "編集する", edit_admin_user_path(@user.id), class: "btn btn-success" %>
+    </div>

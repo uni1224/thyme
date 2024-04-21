@@ -1,0 +1,17 @@
+<div class="container calender-page">
+  <div class="row pt-5">
+    <div class="col-12 text-center title">
+        <h3>Reservation Schedule <i class="fa-solid fa-calendar-days"></i></h3>
+<!-- ここから --!>
+<%= month_calendar events: @reservations do |date, reservations| %>
+  <%= date %>
+
+  <% reservations.each do |reservation| %>
+    <div>
+       <%= link_to reservation.time.strftime( "%H:%M" ), admin_reservation_path(reservation.id)%>:
+      <%= reservation.user.user_name %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+</div>
