@@ -21,7 +21,7 @@
     <tr>
       <td><%= reserve.day.strftime("%Y-%m-%d")%></td>
       <td><%= reserve.time.strftime( "%H:%M" )%></td>
-      <td><%= link_to reserve.user.user_name,salon_user_path(reserve.user.id)%></td>
+      <td><%= link_to reserve.user.user_name,admin_user_path(reserve.user.id)%></td>
     </tr>
   </tbody>
         <%end%>

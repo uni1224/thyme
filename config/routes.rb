@@ -6,9 +6,6 @@ devise_for :users,skip: [:passwords], controllers: {
   sessions: 'user/sessions'
   
 } 
-devise_scope :user do
-  post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
-end
 get 'searches/search'
 
 
@@ -21,6 +18,9 @@ scope module: :user do
   get 'users/quit' => 'users#quit', as: 'confirm_quit'
   put 'users/information' => 'users#update'
   patch 'users/out' => 'users#out', as: 'out_user'
+  #devise_scope :user do
+    #get '/users/sign_out' => 'user/sessions#destroy'
+  #end
   resources :reservations
 end
 
@@ -33,11 +33,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 namespace :admin do
   root to: 'homes#top'
   get 'users/:user_id/resarvations' => 'resarvations#index', as: 'user_resarvations'
-  get 'admins/information/edit' => 'admins#edit', as: 'edit_information'
-  patch 'admins/information' => 'admins#update', as: 'update_information'
   get 'admins/quit' => 'admins#quit', as: 'confirm_quit'
   put 'admins/information' => 'admins#update'
-  patch 'admins/out' => 'admins#out', as: 'out_salon'
+  patch 'admins/out' => 'admins#out', as: 'out_admin'
   resources :reservations
   resources :users, only: %i[show index edit update]
 end
@@ -45,7 +43,7 @@ end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  #get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
   # root "posts#index"

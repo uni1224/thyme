@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
       @user = User.find(params[:id])
       if @user.update(user_params)
         flash[:success] = '会員情報を変更に成功しました'
-        redirect_to salon_user_path(@user.id)
+        redirect_to admin_user_path(@user.id)
       else
         flash[:danger] = '会員情報の更新に失敗しました'
         render :edit
@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
     private
   
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :first_name_kana, :nick_name, :birthday, :last_name_kana,
+      params.require(:user).permit(:first_name, :last_name, :first_name_kana, :birthday, :last_name_kana,
                                    :postal_code, :address, :phone_number, :email, :is_deleted)
     end
 end

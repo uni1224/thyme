@@ -14,6 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       t.string 'address', default: '', null: false
       t.string 'postal_code', default: '', null: false
       t.string 'phone_number', default: '', null: false
+      t.boolean "is_deleted", default: false, null: false
       
 
       ## Recoverable
