@@ -1,0 +1,18 @@
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/racc-1.7.3/ext/racc/cparse
+/home/saeka1224/.rbenv/versions/3.3.0/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-f16ixv sitelibdir\=./.gem.20240425-41765-f16ixv clean
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-f16ixv sitelibdir\=./.gem.20240425-41765-f16ixv
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-f16ixv sitelibdir\=./.gem.20240425-41765-f16ixv install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20240425-41765-f16ixv/racc
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-f16ixv sitelibdir\=./.gem.20240425-41765-f16ixv clean

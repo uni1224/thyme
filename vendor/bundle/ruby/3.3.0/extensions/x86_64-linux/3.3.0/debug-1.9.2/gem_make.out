@@ -1,0 +1,19 @@
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+/home/saeka1224/.rbenv/versions/3.3.0/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-fhss1m sitelibdir\=./.gem.20240425-41765-fhss1m clean
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-fhss1m sitelibdir\=./.gem.20240425-41765-fhss1m
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-fhss1m sitelibdir\=./.gem.20240425-41765-fhss1m install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20240425-41765-fhss1m/debug
+
+current directory: /home/saeka1224/thyme/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240425-41765-fhss1m sitelibdir\=./.gem.20240425-41765-fhss1m clean
