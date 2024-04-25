@@ -10,7 +10,7 @@
     <% end %>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
 
-     <% reservations = Reservation.reservations_after_three_month %>
+     <% reservations = Reservation.reservations_after_one_month %>
   </div>
   <table class="table">
     <thead>
