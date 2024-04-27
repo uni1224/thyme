@@ -152,6 +152,7 @@ GEM
     minitest (5.22.3)
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    mysql2 (0.5.6)
     net-imap (0.4.10)
       date
       net-protocol
@@ -309,6 +310,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  mysql2 (~> 0.5.3)
   net-imap
   net-pop
   net-smtp
