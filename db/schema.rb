@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_071604) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_14_113302) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,28 +54,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_071604) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "facilities", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.string "facility_type"
-    t.text "services"
-    t.decimal "fee", precision: 8, scale: 2
-    t.time "opening_time"
-    t.time "closing_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "openings", force: :cascade do |t|
-    t.integer "facility_id", null: false
-    t.date "date"
-    t.time "start_time"
-    t.time "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["facility_id"], name: "index_openings_on_facility_id"
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "day"
@@ -105,5 +86,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_071604) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "openings", "facilities"
 end
